@@ -1,0 +1,81 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+*::before {
+  box-sizing: border-box; }
+
+*::after {
+  box-sizing: border-box; }
+
+ul, li {
+  list-style: none; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+html {
+  font-size: 2vw; }
+
+body {
+  font-size: 2vw; }
+
+input {
+  font: inherit; }
+
+/*页面布局*/
+.active {
+  background: #ddd; }
+
+.page {
+  display: flex;
+  height: 100vh;
+  width: 100vw; }
+  .page aside {
+    width: 40vw;
+    display: flex;
+    flex-direction: column; }
+    .page aside .newSong {
+      height: 10vw;
+      border-bottom: 1px solid black; }
+    .page aside .songList-wrapper {
+      flex-grow: 1; }
+      .page aside .songList-wrapper .songList li {
+        border-bottom: 1px solid #ddd;
+        padding: 0.5vw; }
+      .page aside .songList-wrapper .songList li.active {
+        background: #ddd; }
+    .page aside .uploadArea #uploadContainer {
+      border: 1px dashed gray;
+      border-radius: 4px;
+      width: 32vw;
+      height: 32vw;
+      margin: 4vw;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      flex-direction: column; }
+    .page aside .uploadArea #uploadButton {
+      border-radius: 4px;
+      width: 20vw;
+      height: 10vw;
+      font-size: 4vw;
+      line-height: 10vw;
+      color: darkgray; }
+    .page aside .uploadArea p {
+      color: #ddd; }
+  .page main {
+    flex-grow: 1;
+    border: 1px solid green; }
+    .page main .form {
+      border: 1px solid black; }
+      .page main .form .row {
+        margin: 1vw  0; }
+      .page main .form input[type="text"] {
+        border: 1px solid #ddd; }
+      .page main .form button[type="submit"] {
+        border: 1px solid #ddd; }
