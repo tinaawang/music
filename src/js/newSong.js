@@ -13,12 +13,19 @@
             this.view = view;
             this.model = model;
             this.view.render(this.model.data);
+            this.active(); /*一开始就选择新建歌曲*/
             window.eventHub.on('upload',(data) => {
                 this.active()
             })
             window.eventHub.on('select',(data) => {
 
                 this.deactive();
+            })
+            window.eventHub.on('new',(data) => {
+                this.active();
+            })
+            $(this.view.el).on('click', ()=>{
+                window.eventHub.emit('new')
             })
         },
         active(){
