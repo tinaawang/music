@@ -3,22 +3,30 @@
         el:'.songList-wrapper',
         template:`
         <ul class="songList">
+        
             </ul>
        `,
         render(data){
             let $el = $(this.el);
             $el.html(this.template);
             let {songs,selectedSongId} = data
+
             let liList = songs.map((song)=> {
+
              let $li = $('<li></li>').text(song.name).attr('data-song-id', song.id)
-              if(song.id === selectedSongId){$li.addClass('active')}
-               return $li;
+
+              if(song.id === selectedSongId){
+                  $li.addClass('active')
+
+             }
+                return $li;
                 }
             )
 
             $el.find('ul').empty()
             liList.map((domLi)=>{
-                $el.find('ul').append(domLi)
+                let $svg = $('<svg class="icon" > <use xlink:href="#icon-music"></use></svg>')
+               $el.find('ul').append($svg,domLi)
             })
         },
         deactive(){

@@ -1,6 +1,6 @@
 {
     let view = {
-        el:  '.page > main',
+        el:  'main',
         init(){
             this.$el = $(this.el)
         },
@@ -19,7 +19,13 @@
                 <button type="submit">保存</button>
             </div>
 
-        </form>`,
+        </form>
+            <div class="uploadArea">
+                <div id="uploadContainer" class="draggable">
+                    <button id="uploadButton" class="clickable">+</button>
+                    <p>点此或拖曳上传文件</p>
+                </div>
+            </div>`,
 
         render(data = {}) { /*如果data为空或undefin就初始化为{}*/
             let placeholders = ['name','url','singer','id'];
@@ -29,9 +35,9 @@
             })
            $(this.el).html(html)
             if(data.id){
-                $(this.el).prepend('<h1>编辑歌曲</h1>')
+                $(this.el).prepend('<p class="song-form-head"><label>编辑歌曲</label></p>')
             }else{
-                $(this.el).prepend('<h1>新建歌曲</h1>')
+                $(this.el).prepend('<p class="song-form-head"><label>新建歌曲</label></p>')
             }
         },
         reset(){

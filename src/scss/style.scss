@@ -1,6 +1,4 @@
 
-
-
 *{
   margin: 0;
   padding: 0;
@@ -32,86 +30,181 @@ input{font:inherit;}
 
 /*页面布局*/
 .active{
-  background: #ddd;
+  background: #e6e6e6;
+}
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 .page{
   display: flex;
-  height:100vh;
   width:100vw;
+  height:100vh;
+  overflow: auto;
+  flex-direction: column;
+  #nav{
+    width:100vw;
+    height:10vw;
+   background:#d43c33;
+   font-family: "Andale Mono";
+    color:white;
+    position: relative;
+    img{
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      position: absolute;
 
-  aside{
-    width:40vw;
-    display: flex;
-    flex-direction: column;
-
-
-    .newSong{
-      height:10vw;
-      border-bottom: 1px solid black;
 
     }
-    .songList-wrapper {
-      flex-grow: 1;
-      .songList {
 
-        li {
-          border-bottom: 1px solid #ddd;
-          padding: 0.5vw;
+  }
+  #contain{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    aside{
+      overflow: hidden;
+      width:40vw;
+      display: flex;
+      flex-direction: column;
+
+      .newSong{
+        line-height: 8vw;
+        height:8vw;
+        cursor: pointer;
+        font-family:  "Microsoft Yahei";
+        padding-left: 1vw;
+
+
+      }
+      .songList-wrapper {
+        flex-grow: 1;
+        .songList {
+
+          svg{
+
+
+          }
+          li {
+            cursor: pointer;
+            height:5.5vw;
+            border-bottom: 1px solid #ddd;
+            line-height: 5.5vw;
+            padding-left: 1vw;
+
+          }
+          li.active {
+            background:#e6e6e6 ;
+
+          }
+
 
         }
-        li.active {
-          background: #ddd;
+      }
+
+    }
+
+
+
+    main{
+      background: #e6e6e6;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      .song-form-head {
+        height: 8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        label{
+
+          font-family: Microsoft Yahei;
+          font-size: 4vw;
+          font-weight:bold;
 
         }
 
       }
-    }
+      .uploadArea{
 
-    .uploadArea{
-
-      #uploadContainer {
-        border: 1px dashed gray;
-        border-radius: 4px;
-        width:32vw ;
-        height:32vw ;
-        margin:4vw;
+        flex-grow: 1;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        align-content: center;
+        #uploadContainer {
+          border: 1px dashed gray;
+          border-radius: 4px;
+          width:32vw ;
+          height:16vw ;
+          margin:2vw;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          align-content: center;
+          flex-direction: column;
+
+        }
+        #uploadButton {
+
+          border-radius: 4px;
+          width:16vw;
+          height:8vw ;
+          font-size:4vw;
+          line-height:8vw;
+          color: darkgray;
+        }
+
+        p {
+
+        }
+      }
+      .form {
+       flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
 
-      }
-      #uploadButton {
-        border-radius: 4px;
-        width:20vw;
-        height:10vw ;
-        font-size:4vw;
-        line-height:10vw;
-        color: darkgray;
-      }
+        font-size: 2vw;
+        .row {
+          margin: 1vw 0;
+          label{
+            margin-right: 1vw;
 
-      p {
-        color: #ddd;
+          }
+        }
+        input[type="text"] {
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          word-break: break-all;
+          word-wrap: break-word;
+          padding-left: 1vw;
+        }
+        button[type="submit"] {
+          margin-top: 2vw;
+          border: 1px solid #ddd;
+          width: 10vw;
+          height: 5vw;
+          border-radius: 4px;
+          background:#888;
+          color:black;
+
+        }
+        button[type="submit"]:hover{
+
+        }
       }
     }
-  }
-  main{
-    flex-grow: 1;
 
-    .form{
-      border:1px solid black;
-      .row{
-        margin:1vw  0;
-      }
-      input[type="text"]{
-        border:1px solid #ddd;
-      }
-      button[type="submit"]{
-        border:1px solid #ddd;
-      }
-    }
   }
+
+
 
 }
 

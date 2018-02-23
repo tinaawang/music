@@ -1,8 +1,11 @@
 {
     let view = {
-        el:'.page > aside >.newSong',
+        el:'aside >.newSong',
         template:`
-        新建歌曲`,
+<span>新建歌曲</span><svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-xinjian"></use>
+</svg>
+       `,
         render(data){
             $(this.el).html(this.template)
         }
