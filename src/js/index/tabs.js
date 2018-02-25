@@ -21,7 +21,7 @@
                 let tabName = $li.attr('data-tab-name')
 
                 $li.addClass('active').siblings().removeClass('active')
-                
+
                 window.eventHub.emit('selectTab', tabName)
             })
         }
