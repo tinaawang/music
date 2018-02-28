@@ -42,7 +42,7 @@ input{font:inherit;}
 .page{
   display: flex;
   width:100vw;
-  height:100vh;
+  min-height:100vh;
   overflow: auto;
   flex-direction: column;
   #nav{
@@ -92,10 +92,11 @@ input{font:inherit;}
           }
           li {
             cursor: pointer;
-            height:5.5vw;
+           // height:5.5vw;
             border-bottom: 1px solid #ddd;
             line-height: 5.5vw;
             padding-left: 1vw;
+            min-height:5.5vw;
 
           }
           li.active {
@@ -158,6 +159,7 @@ input{font:inherit;}
           font-size:4vw;
           line-height:8vw;
           color: darkgray;
+          border:none;
         }
 
         p {
@@ -194,6 +196,7 @@ input{font:inherit;}
           border-radius: 4px;
           background:#888;
           color:black;
+          border:none;
 
         }
         button[type="submit"]:hover{

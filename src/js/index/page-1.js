@@ -38,7 +38,7 @@
             let script1 = document.createElement('script')
             script1.src = './js/index/page-1-1.js'
             script1.onload = () => {
-                console.log('script1')
+
             }
             document.body.appendChild(script1)
         },
@@ -46,7 +46,7 @@
             let script2 = document.createElement('script')
             script2.src = './js/index/page-1-2.js'
             script2.onload = () => {
-                console.log('script2')
+
             }
             document.body.appendChild(script2)
         }

@@ -7,13 +7,19 @@
         template: `
         <form class="form">
             <div class="row">
-                <label>歌名</label> <input name="name" type="text" value="_name_">
+                <label>歌名</label> <input name="name" type="text" value="_name_" >
             </div>
             <div class="row">
                 <label>歌手</label> <input type="text" name="singer"  value="_singer_">
             </div>
             <div class="row">
                 <label>外链 </label><input name="url" type="text" value="_url_">
+            </div>
+             <div class="row">
+                <label>封面 </label><input name="cover" type="text" value="_cover_"  placeholder="请上传比例为1：1的封面">
+            </div>
+             <div class="row">
+                <label>歌词 </label><textarea name="lyrics" id="" cols="20" rows="15">_lyrics_</textarea>
             </div>
             <div class="row">
                 <button type="submit">保存</button>
@@ -28,7 +34,7 @@
             </div>`,
 
         render(data = {}) { /*如果data为空或undefin就初始化为{}*/
-            let placeholders = ['name','url','singer','id'];
+            let placeholders = ['name','url','singer','id','cover','lyrics'];
             let html = this.template;
             placeholders.map((string) => {
                 html = html.replace(`_${string}_`,data[string] || '')
@@ -51,13 +57,15 @@
 
     let model = {
         data:{
-            name:'',singer:'',url:'',id:''
+            name:'',singer:'',url:'',id:'',cover:'',lyrics:''
         },
         update(data){
             var song = AV.Object.createWithoutData('Song', this.data.id)
             song.set('name', data.name)
             song.set('singer', data.singer)
             song.set('url', data.url)
+            song.set('cover', data.cover)
+            song.set('lyrics', data.lyrics)
             return song.save().then((response)=>{
                 Object.assign(this.data, data)
                 return response
@@ -72,6 +80,9 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
+            song.set('lyrics', data.lyrics);
+
             return song.save().then((newSong) => {
                 let {id, attributes} = newSong;
                 Object.assign(this.data, { id, ...attributes })
@@ -104,7 +115,7 @@
             window.eventHub.on('new',(data) => {
                 if(this.model.data.id){
                     this.model.data = {
-                        name: '', url: '', id: '', singer: ''
+                        name: '', url: '', id: '', singer: '',cover: '',lyrics: ''
                     }
                 }else{
                     Object.assign(this.model.data, data)
@@ -113,7 +124,7 @@
             })
             },
         create(){
-            let needs = 'name singer url'.split(' ');
+            let needs = 'name singer url cover lyrics'.split(' ');
             let data = {};
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -127,7 +138,7 @@
             });
         },
         update(){
-            let needs = 'name singer url'.split(' ');
+            let needs = 'name singer url cover lyrics'.split(' ');
             let data = {};
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -148,6 +159,9 @@
                 else {
                     this.create()
                 }
+
+                window.location.reload(true);
+               
             })
 
         }

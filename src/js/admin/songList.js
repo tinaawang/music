@@ -25,7 +25,7 @@
 
             $el.find('ul').empty()
             liList.map((domLi)=>{
-                let $svg = $('<svg class="icon" > <use xlink:href="#icon-music"></use></svg>')
+               let $svg = $('<svg class="icon" > <use xlink:href="#icon-music"></use></svg>')
                $el.find('ul').append($svg,domLi)
             })
         },

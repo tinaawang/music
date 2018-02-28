@@ -44,7 +44,7 @@
 
                         // 每个文件上传成功后,处理相关的事情
 
-                        window.eventHub.emit('afterUpload')
+
 
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
@@ -52,7 +52,11 @@
                         window.eventHub.emit('upload',{
                             url:sourceLink,
                             name:response.key
+
                         })
+
+                        window.eventHub.emit('afterUpload')
+
 
                     },
                     'Error': function(up, err, errTip) {
@@ -61,9 +65,11 @@
                     'UploadComplete': function() {
                         //队列文件处理完毕后,处理相关的事情
 
+
                     },
                 }
             });
+
         }
     }
     controller.init(view,model)

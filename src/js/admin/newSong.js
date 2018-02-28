@@ -19,6 +19,7 @@
             this.active(); /*一开始就选择新建歌曲*/
             window.eventHub.on('upload',(data) => {
                 this.active()
+                
             })
             window.eventHub.on('select',(data) => {
 
